@@ -251,5 +251,26 @@ RENAME TABLE old_table TO new_table;
 ```
 
 ## Functions
+
+A function is a stored program that can return a single value. Functions are typically used in SELECT statements, WHERE clauses, or anywhere expressions are allowed. Functions in SQL are created and called differently from stored procedures.
+
+### Example: Creating a Simple Function
+
+```sql
+CREATE FUNCTION calculate_discount(price DECIMAL(10,2), discount_rate DECIMAL(3,2))
+RETURNS DECIMAL(10,2)
+DETERMINISTIC
+BEGIN
+    RETURN price * (1 - discount_rate);
+END
+```
+
+### Example: Using the Function
+
+```sql
+SELECT name, price, calculate_discount(price, 0.10) AS discounted_price
+FROM products;
+```
+
 ## Stored Procedures
 ## Views
