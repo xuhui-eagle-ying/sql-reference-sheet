@@ -11,7 +11,7 @@ A concise MySQL syntax reference sheet for beginners and intermediate users. Per
 - [Filtering & Sorting](#filtering--sorting)
 - [INSERT, UPDATE, DELETE](#insert-update-delete)
 - [Aggregate Functions](#aggregate-functions)
-- [JOINs](#joins)
+- [JOIN & Union](#join--union)
 - [Subqueries](#subqueries)
 - [CASE WHEN](#case-when)
 - [CTE (Common Table Expressions)](#cte-common-table-expressions)
@@ -119,8 +119,9 @@ SELECT gender, COUNT(*) FROM users GROUP BY gender;
 SELECT department, COUNT(*) FROM employees GROUP BY department HAVING COUNT(*) > 5;
 ```
 
-## JOINs
+## JOIN & Union
 
+### Inner Join, Left Join, Right Join
 ```sql
 SELECT a.name, b.salary 
 FROM employees a 
@@ -134,11 +135,35 @@ SELECT o.order_id, u.name
 FROM orders o 
 RIGHT JOIN users u ON u.id = o.user_id;
 
-SELECT * FROM A 
+```
+
+### Full Outer Join
+
+```sql
+-- FULL OUTER JOIN simulation in MySQL
+-- Combine LEFT JOIN and RIGHT JOIN using UNION to include all unmatched rows from both tables
+
+SELECT A.id AS A_id, A.name AS A_name, B.id AS B_id, B.name AS B_name
+FROM A
 LEFT JOIN B ON A.id = B.id
+
 UNION
-SELECT * FROM A 
+
+SELECT A.id AS A_id, A.name AS A_name, B.id AS B_id, B.name AS B_name
+FROM A
 RIGHT JOIN B ON A.id = B.id;
+
+-- FULL OUTER JOIN simulation using UNION ALL + filter to avoid duplicates
+SELECT A.id AS A_id, A.name AS A_name, B.id AS B_id, B.name AS B_name
+FROM A
+LEFT JOIN B ON A.id = B.id
+
+UNION ALL
+
+SELECT A.id AS A_id, A.name AS A_name, B.id AS B_id, B.name AS B_name
+FROM A
+RIGHT JOIN B ON A.id = B.id
+WHERE A.id IS NULL;  -- Only include rows that weren't matched in the LEFT JOIN
 ```
 
 ## Subqueries
