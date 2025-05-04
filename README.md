@@ -4,18 +4,18 @@
 A concise MySQL syntax reference sheet for beginners and intermediate users. Perfect for quick lookups and practice.
 
 ## 📌 Table of Contents
-- [Basic Commands](#-basic-commands)
-- [Data Types](#-data-types)
-- [SELECT Queries](#-select-queries)
-- [Filtering & Sorting](#-filtering--sorting)
-- [INSERT, UPDATE, DELETE](#-insert-update-delete)
-- [Aggregate Functions](#-aggregate-functions)
-- [JOINs](#-joins)
-- [Subqueries](#-subqueries)
-- [CASE WHEN](#-case-when)
-- [CTE (Common Table Expressions)](#-cte-common-table-expressions)
-- [Window Functions](#-window-functions)
-- [Table Management](#-table-management)
+- [Basic Commands](#basic-commands)
+- [Data Types](#data-types)
+- [SELECT Queries](#select-queries)
+- [Filtering & Sorting](#filtering--sorting)
+- [INSERT, UPDATE, DELETE](#insert-update-delete)
+- [Aggregate Functions](#aggregate-functions)
+- [JOINs](#joins)
+- [Subqueries](#subqueries)
+- [CASE WHEN](#case-when)
+- [CTE (Common Table Expressions)](#cte-common-table-expressions)
+- [Window Functions](#window-functions)
+- [Table Management](#table-management)
 
 ##  Basic Commands
 
