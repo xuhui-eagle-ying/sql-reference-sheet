@@ -17,6 +17,9 @@ A concise MySQL syntax reference sheet for beginners and intermediate users. Per
 - [CTE (Common Table Expressions)](#cte-common-table-expressions)
 - [Window Functions](#window-functions)
 - [Table Management](#table-management)
+- [Functions](#functions)
+- [Stored Procedures](#stored-procedures)
+- [Views](#views)
 
 ## SQL Execution Order
 
@@ -228,9 +231,25 @@ FROM orders;
 ## Table Management
 
 ```sql
+-- Add a new column to a table
 ALTER TABLE users ADD COLUMN email VARCHAR(100);
+
+-- Modify the type of an existing column
 ALTER TABLE users MODIFY COLUMN age INT;
+
+-- Drop an existing column
 ALTER TABLE users DROP COLUMN email;
 
+-- Rename a column
+ALTER TABLE users CHANGE age user_age INT;
+
+-- Drop a table (if exists)
 DROP TABLE IF EXISTS users;
+
+-- Rename a table
+RENAME TABLE old_table TO new_table;
 ```
+
+## Functions
+## Stored Procedures
+## Views
