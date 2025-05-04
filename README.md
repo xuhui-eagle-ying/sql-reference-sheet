@@ -214,11 +214,9 @@ JOIN users u ON o.user_id = u.id;
 
 ## Window Functions
 
-```sql
-SELECT name, department, salary,
-       RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS dept_rank
-FROM employees;
-```
+A window function in SQL performs calculations across a set of rows related to the current row, allowing you to compute values like running totals, rankings, and averages without needing to group the data.
+
+It operates within a defined "window" of rows, which can be specified using the OVER clause, and retains the individual rows in the result set.
 
 ### Common Functions
 
