@@ -142,7 +142,6 @@ RIGHT JOIN users u ON u.id = o.user_id;
 ```sql
 -- FULL OUTER JOIN simulation in MySQL
 -- Combine LEFT JOIN and RIGHT JOIN using UNION to include all unmatched rows from both tables
-
 SELECT A.id AS A_id, A.name AS A_name, B.id AS B_id, B.name AS B_name
 FROM A
 LEFT JOIN B ON A.id = B.id
