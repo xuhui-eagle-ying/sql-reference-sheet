@@ -273,4 +273,92 @@ FROM products;
 ```
 
 ## Stored Procedures
+
+A stored procedure is a set of SQL statements that can be executed together. Stored procedures can have input parameters, output parameters, and return multiple values.
+
+### Example: Creating a Stored Procedure
+
+```sql
+CREATE PROCEDURE GetEmployeeDetails(IN emp_id INT)
+BEGIN
+    SELECT name, department, salary
+    FROM employees
+    WHERE id = emp_id;
+END
+```
+
+### Example: Calling the Stored Procedure
+
+```sql
+CREATE PROCEDURE GetEmployeeSalary(IN emp_id INT, OUT emp_salary DECIMAL(10,2))
+BEGIN
+    SELECT salary INTO emp_salary
+    FROM employees
+    WHERE id = emp_id;
+END
+```
+
+### Example: Calling the Stored Procedure with Output Parameter
+
+```sql
+CALL GetEmployeeSalary(101, @salary);
+SELECT @salary;
+```
+
+### Viewing Stored Procedures
+
+```sql
+# To view all stored procedures in the database
+SHOW PROCEDURE STATUS;
+
+# To view the code of a specific stored procedure
+SHOW CREATE PROCEDURE GetEmployeeDetails;
+```
+
+### Dropping a Stored Procedure
+
+```sql
+DROP PROCEDURE IF EXISTS GetEmployeeDetails;
+```
+
 ## Views
+
+A view is a virtual table based on the result of a SELECT query. It doesn't store data but allows you to store complex queries for later reuse.
+
+### Example: Creating a View
+
+```sql
+CREATE VIEW EmployeeSummary AS
+SELECT department, COUNT(*) AS num_employees, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department;
+```
+
+### Example: Querying a View
+
+```sql
+SELECT * FROM EmployeeSummary;
+```
+
+### Example: Creating a View with a JOIN
+
+```sql
+CREATE VIEW DepartmentEmployee AS
+SELECT e.name, e.department, d.manager
+FROM employees e
+JOIN departments d ON e.department = d.department_name;
+```
+
+### Example: Updating Data Through a View
+
+```sql
+UPDATE DepartmentEmployee
+SET manager = 'New Manager'
+WHERE name = 'John Doe';
+```
+
+### Dropping a View
+
+```sql
+DROP VIEW IF EXISTS EmployeeSummary;
+```
