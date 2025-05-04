@@ -66,7 +66,16 @@ LIMIT 10;
 CREATE DATABASE db_name;
 USE db_name;
 
+CREATE DATABASE IF NOT EXISTS db_name;
+USE db_name;
+
 CREATE TABLE table_name (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    age INT
+);
+
+CREATE TABLE IF NOT EXISTS table_name (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100),
     age INT
