@@ -221,7 +221,7 @@ ORDER BY salary DESC;
 
 ```sql
 SELECT order_date, total,
-       AVG(total) OVER (ORDER BY order_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS moving_avg
+       AVG(total) OVER (ORDER BY order_date ROWS BETWEEN 30 PRECEDING AND CURRENT ROW) AS moving_avg
 FROM orders;
 ```
 
