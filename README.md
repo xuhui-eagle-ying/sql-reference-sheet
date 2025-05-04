@@ -4,6 +4,7 @@
 A concise MySQL syntax reference sheet for beginners and intermediate users. Perfect for quick lookups and practice.
 
 ## 📌 Table of Contents
+- [SQL Execution Order](#sql-execution-order)
 - [Basic Commands](#basic-commands)
 - [Data Types](#data-types)
 - [SELECT Queries](#select-queries)
@@ -29,6 +30,31 @@ CREATE TABLE table_name (
     age INT
 );
 ```
+
+## SQL Execution Order
+
+SQL queries are executed in a specific order, and understanding the order is important for correct query construction. Below is the typical order of operations for a SQL query:
+
+1. **FROM**: Determines the tables and joins
+2. **ON**: Applies the join conditions
+3. **WHERE**: Filters rows before grouping
+4. **GROUP BY**: Groups rows based on column(s)
+5. **HAVING**: Filters groups (after aggregation)
+6. **SELECT**: Defines what data to return (including window functions)
+7. **DISTINCT**: Removes duplicate rows (if used)
+8. **ORDER BY**: Sorts the result set
+9. **LIMIT / OFFSET**: Limits the number of rows returned
+
+## Example: Correct Query Flow
+
+```sql
+SELECT name, AVG(salary) AS avg_salary
+FROM employees
+WHERE department = 'Sales'
+GROUP BY name
+HAVING AVG(salary) > 50000
+ORDER BY avg_salary DESC
+LIMIT 10;
 
 ## Data Types
 
