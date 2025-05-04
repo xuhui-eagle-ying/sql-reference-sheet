@@ -42,6 +42,7 @@ GROUP BY name
 HAVING AVG(salary) > 50000
 ORDER BY avg_salary DESC
 LIMIT 10;
+```
 
 ## Data Types
 
