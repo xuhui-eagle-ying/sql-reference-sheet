@@ -190,20 +190,39 @@ FROM employees;
 | `SUM() OVER()`     | Running total                             |
 | `AVG() OVER()`     | Running average                           |
 
-### Example: Running Total
+### Example: Aggregate Function with Grouping
 
 ```sql
-SELECT user_id, order_date, total,
-       SUM(total) OVER (PARTITION BY user_id ORDER BY order_date) AS running_total
-FROM orders;
+SELECT department, COUNT(*) AS num_employees, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department
+HAVING AVG(salary) > 50000;
 ```
 
-### Example: Compare with Previous Row
+### Example: Running Total**Using LAG and LEAD
 
 ```sql
 SELECT name, salary,
-       salary - LAG(salary) OVER (ORDER BY hire_date) AS salary_change
+       LAG(salary) OVER (ORDER BY hire_date) AS previous_salary,
+       LEAD(salary) OVER (ORDER BY hire_date) AS next_salary
 FROM employees;
+```
+
+### Example: Sorting with Window Function
+
+```sql
+SELECT name, salary,
+       RANK() OVER (ORDER BY salary DESC) AS salary_rank
+FROM employees
+ORDER BY salary DESC;
+```
+
+### Example: Moving Average with ROWS BETWEEN
+
+```sql
+SELECT order_date, total,
+       AVG(total) OVER (ORDER BY order_date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW) AS moving_avg
+FROM orders;
 ```
 
 ## Table Management
