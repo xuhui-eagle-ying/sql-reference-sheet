@@ -18,19 +18,6 @@ A concise MySQL syntax reference sheet for beginners and intermediate users. Per
 - [Window Functions](#window-functions)
 - [Table Management](#table-management)
 
-##  Basic Commands
-
-```sql
-CREATE DATABASE db_name;
-USE db_name;
-
-CREATE TABLE table_name (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100),
-    age INT
-);
-```
-
 ## SQL Execution Order
 
 SQL queries are executed in a specific order, and understanding the order is important for correct query construction. Below is the typical order of operations for a SQL query:
@@ -68,6 +55,19 @@ LIMIT 10;
 | `BOOLEAN`    | TRUE (1) or FALSE (0)        |
 | `FLOAT`      | Floating-point number        |
 | `DECIMAL(p,s)`| Fixed-point (e.g. prices)   |
+
+##  Basic Commands
+
+```sql
+CREATE DATABASE db_name;
+USE db_name;
+
+CREATE TABLE table_name (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    age INT
+);
+```
 
 ## SELECT Queries
 
