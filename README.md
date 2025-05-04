@@ -95,7 +95,16 @@ SELECT name AS username FROM users;
 ```sql
 SELECT * FROM users WHERE age > 18;
 SELECT * FROM users WHERE age > 18 AND gender = 'F';
+
+-- Query products where the name contains 'apple' anywhere in the string
 SELECT * FROM products WHERE name LIKE '%apple%';
+-- Query users where the username starts with 'A'
+SELECT * FROM users WHERE username LIKE 'A%';
+-- Query products where the product name ends with 's'
+SELECT * FROM products WHERE product_name LIKE '%s';
+-- Query employees where the email has exactly one character before '@gmail.com'
+SELECT * FROM employees WHERE email LIKE '_@gmail.com';
+
 SELECT * FROM orders WHERE status IN ('shipped', 'delivered');
 SELECT * FROM orders WHERE date BETWEEN '2023-01-01' AND '2023-12-31';
 SELECT * FROM users ORDER BY age DESC;
